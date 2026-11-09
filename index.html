@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Produtos</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =================================
+         FUNDO MATRIX
+    ================================== -->
+
+    <canvas id="matrix"></canvas>
+
+
+    <!-- =================================
+         CABEÇALHO
+    ================================== -->
+
+    <nav class="navbar">
+
+        <div class="navbar-content">
+
+            <div class="logo">
+
+                <!-- LOGOTIPO PERSONALIZADO -->
+
+                <img
+                    src="caixa-caveira.png"
+                    alt="Caixa com caveira"
+                    class="logo-icon"
+                >
+
+                <div>
+
+                    <strong>
+                        Cadastro de Produtos
+                    </strong>
+
+                    <small>
+                        Gestão de produtos
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <span class="nav-title">
+                Painel Administrativo
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =================================
+         CONTEÚDO PRINCIPAL
+    ================================== -->
+
+    <main class="container">
+
+
+        <!-- TÍTULO DA PÁGINA -->
+
+        <div class="page-title">
+
+            <div>
+
+                <h1>
+                    Cadastrar produto
+                </h1>
+
+                <p>
+                    Preencha as informações para adicionar
+                    um novo produto.
+                </p>
+
+            </div>
+
+            <span class="product-icon">
+                📦
+            </span>
+
+        </div>
+
+
+        <!-- =================================
+             FORMULÁRIO DE CADASTRO
+        ================================== -->
+
+        <form id="produtoForm">
+
+
+            <!-- INFORMAÇÕES DO PRODUTO -->
+
+            <div class="section-title">
+                Informações do produto
+            </div>
+
+
+            <!-- NOME -->
+
+            <div class="form-group">
+
+                <label for="nome">
+                    Nome do produto *
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Ex: Notebook Dell Inspiron"
+                    required
+                >
+
+            </div>
+
+
+            <!-- CATEGORIA -->
+
+            <div class="form-group">
+
+                <label for="categoria">
+                    Categoria *
+                </label>
+
+                <select
+                    id="categoria"
+                    name="categoria"
+                    required
+                >
+
+                    <option value="">
+                        Selecione uma categoria
+                    </option>
+
+                    <option value="Eletrônicos">
+                        Eletrônicos
+                    </option>
+
+                    <option value="Informática">
+                        Informática
+                    </option>
+
+                    <option value="Vestuário">
+                        Vestuário
+                    </option>
+
+                    <option value="Alimentos">
+                        Alimentos
+                    </option>
+
+                    <option value="Móveis">
+                        Móveis
+                    </option>
+
+                    <option value="Outros">
+                        Outros
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+
+            <div class="form-group">
+
+                <label for="descricao">
+                    Descrição do produto *
+                </label>
+
+                <textarea
+                    id="descricao"
+                    name="descricao"
+                    placeholder="Informe os detalhes do produto..."
+                    rows="4"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- PREÇO -->
+
+            <div class="form-group">
+
+                <label for="preco">
+                    Preço de venda (R$) *
+                </label>
+
+                <input
+                    type="number"
+                    id="preco"
+                    name="preco"
+                    placeholder="0,00"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+            <!-- =================================
+                 IMAGEM DO PRODUTO
+            ================================== -->
+
+            <div class="section-title">
+                Imagem do produto
+            </div>
+
+
+            <div class="upload-area">
+
+
+                <label
+                    for="foto"
+                    class="upload-label"
+                >
+
+                    <span class="upload-icon">
+                        📷
+                    </span>
+
+                    <strong>
+                        Adicionar foto do produto
+                    </strong>
+
+                    <small>
+                        Clique para selecionar uma imagem
+                    </small>
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="foto"
+                    name="foto"
+                    accept="image/*"
+                >
+
+
+                <!-- PRÉ-VISUALIZAÇÃO -->
+
+                <img
+                    id="preview"
+                    alt="Pré-visualização da foto"
+                >
+
+            </div>
+
+
+            <!-- =================================
+                 INFORMAÇÕES ADICIONAIS
+            ================================== -->
+
+            <div class="section-title">
+                Informações adicionais
+            </div>
+
+
+            <!-- DATA DE CRIAÇÃO -->
+
+            <div class="form-group">
+
+                <label for="criadoEm">
+                    Data de cadastro
+                </label>
+
+                <input
+                    type="datetime-local"
+                    id="criadoEm"
+                    name="criadoEm"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- =================================
+                 BOTÕES
+            ================================== -->
+
+            <div class="buttons">
+
+
+                <button
+                    type="submit"
+                    class="btn-salvar"
+                >
+
+                    Cadastrar produto
+
+                </button>
+
+
+                <button
+                    type="reset"
+                    class="btn-limpar"
+                >
+
+                    Limpar formulário
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+        <!-- =================================
+             MENSAGEM DE RETORNO
+        ================================== -->
+
+        <div id="mensagem"></div>
+
+
+        <!-- =================================
+             RODAPÉ
+        ================================== -->
+
+        <footer>
+
+            Sistema de Gestão de Produtos © 2026
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =================================
+         ARQUIVOS JAVASCRIPT
+    ================================== -->
+
+    <!-- Cadastro de produtos -->
+
+    <script src="script.js"></script>
+
+
+    <!-- Animação Matrix -->
+
+    <script src="matrix.js"></script>
+
+
+</body>
+
+</html>
