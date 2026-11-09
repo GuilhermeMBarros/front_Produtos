@@ -1,0 +1,446 @@
+
+/* =====================================
+   CONFIGURAÇÕES GERAIS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #020604;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* =====================================
+   FUNDO MATRIX
+===================================== */
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        ellipse at center,
+        transparent 20%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* =====================================
+   CABEÇALHO
+===================================== */
+
+.navbar {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    padding: 18px 5%;
+
+    background: rgba(10, 35, 28, 0.95);
+
+    border-bottom: 2px solid #00ff66;
+
+    box-shadow:
+        0 3px 18px rgba(0, 255, 102, 0.2);
+}
+
+.navbar-content {
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo strong {
+    display: block;
+    font-size: 20px;
+}
+
+.logo small {
+    display: block;
+    font-size: 11px;
+    color: #b9d9ff;
+    margin-top: 4px;
+}
+
+.nav-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #dceeff;
+}
+
+
+/* =====================================
+   CONTEÚDO PRINCIPAL
+===================================== */
+
+.container {
+    position: relative;
+    z-index: 2;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    width: 90%;
+    max-width: 750px;
+
+    margin: 40px auto;
+    padding: 35px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 102, 0.18),
+        0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =====================================
+   TÍTULO DA PÁGINA
+===================================== */
+
+.page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5edf5;
+
+    margin-bottom: 25px;
+}
+
+.page-title h1 {
+    font-size: 25px;
+    color: #142d4e;
+    margin-bottom: 8px;
+}
+
+.page-title p {
+    font-size: 14px;
+    color: #718096;
+}
+
+.product-icon {
+    font-size: 35px;
+
+    background: #dceeff;
+
+    padding: 12px;
+    border-radius: 10px;
+}
+
+
+/* =====================================
+   TÍTULOS DAS SEÇÕES
+===================================== */
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #142d4e;
+
+    margin: 25px 0 20px;
+    padding: 10px 12px;
+
+    background: #e9fff1;
+
+    border-left: 4px solid #00a84f;
+    border-radius: 4px;
+}
+
+
+/* =====================================
+   FORMULÁRIO
+===================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #34445a;
+
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccd8e5;
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    outline: none;
+    background: #fff;
+
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #00b85a;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 184, 90, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+#criadoEm {
+    background: #f3f6fa;
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   UPLOAD DE IMAGEM
+===================================== */
+
+.upload-area {
+
+    border: 2px dashed #00b85a;
+    border-radius: 8px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #f5faff;
+}
+
+.upload-area input {
+    display: none;
+}
+
+.upload-label {
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.upload-icon {
+
+    font-size: 35px;
+
+    background: #dceeff;
+
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.upload-label strong {
+    color: #087a3b;
+    font-size: 14px;
+}
+
+.upload-label small {
+    color: #8898aa;
+    font-size: 12px;
+}
+
+#preview {
+
+    display: none;
+
+    width: 160px;
+    height: 160px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin: 20px auto 0;
+
+    border: 2px solid #dceeff;
+}
+
+
+/* =====================================
+   BOTÕES
+===================================== */
+
+.buttons {
+
+    display: flex;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+button {
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-salvar {
+
+    background: #142d4e;
+    color: white;
+
+    flex: 2;
+}
+
+.btn-salvar:hover {
+    background: #214875;
+}
+
+.btn-limpar {
+
+    background: #dceeff;
+    color: #142d4e;
+
+    flex: 1;
+}
+
+.btn-limpar:hover {
+    background: #c5e0fc;
+}
+
+
+/* =====================================
+   MENSAGENS
+===================================== */
+
+#mensagem {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =====================================
+   RODAPÉ
+===================================== */
+
+footer {
+
+    text-align: center;
+
+    margin-top: 35px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5edf5;
+
+    color: #8998aa;
+
+    font-size: 12px;
+}
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .nav-title {
+        display: none;
+    }
+
+    .logo strong {
+        font-size: 17px;
+    }
+
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .container {
+
+        width: 94%;
+
+        padding: 22px;
+
+        margin: 20px auto;
+    }
+
+    .page-title h1 {
+        font-size: 21px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+}
